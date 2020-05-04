@@ -6,7 +6,7 @@ public class MoveWords{
     public static final int GANA = 1;
     public static final int PIERDE = 2;
 
-    private static final String[] validMoves = {"TIJERAS", "PAPEL", "PIEDRA"};
+    private static final String[] validMoves = {"TIJERAS", "PAPEL", "PIEDRA", "LAGARTIJA", "SPOCK"};
     private static final String[] validCommands = {"SALIR", "HELP"};
 
     private Random rnd;
@@ -67,7 +67,10 @@ public class MoveWords{
 
 	    if (first_i == second_i) return EMPATE;
 	    
-	    return (( (first_i +1) % validMoves.length ) == second_i ) ? GANA: PIERDE;
+	    if (first_i == 3) return (( (first_i+1) % 1 ) == second_i ) ? GANA: PIERDE;
+	    if (first_i == 4) return (( (first_i+1) % 1 ) == second_i ) ? GANA: PIERDE;
+	    else return (( (first_i+1) % 3 ) == second_i ) ? GANA: PIERDE;
+	    
 	}
 	
-} 
+}
